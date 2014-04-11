@@ -1,0 +1,35 @@
+#ifndef __MARTIN_NETLINK_H__
+#define __MARTIN_NETLINK_H__
+
+#define MARTIN_NETLINK_NL_FAMILY_NAME "MartinNetlink"
+#define MARTIN_NETLINK_NL_GRP_NAME "mapping"
+
+/* network order */
+struct http_info {
+	uint32_t sip;
+	uint32_t dip;
+	uint16_t sport;
+	uint16_t dport;
+};
+
+enum {
+	MARTIN_NETLINK_CMD_UNSPEC = 0,
+	MARTIN_NETLINK_CMD_SKB_DUMP,
+	MARTIN_NETLINK_CMD_MAX
+};
+
+enum {
+	MARTIN_NETLINK_ATTR_UNSPEC = 0,
+	__MARTIN_NETLINK_ATTR_MAX,
+};
+#define MARTIN_NETLINK_ATTR_MAX (__MARTIN_NETLINK_ATTR_MAX - 1)
+
+enum {
+	MARTIN_NETLINK_TYPE_UNSPEC = 0,
+	MARTIN_NETLINK_TYPE_HTTP_INFO,
+	MARTIN_NETLINK_TYPE_HTTP_DATA,
+	__MARTIN_NETLINK_TYPE_MAX
+};
+#define MARTIN_NETLINK_TYPE_MAX (__MARTIN_NETLINK_TYPE_MAX - 1)
+
+#endif /* __MARTIN_NETLINK_H__ */
